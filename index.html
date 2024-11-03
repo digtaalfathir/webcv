@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV Generator</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        line-height: 1.5;
+      }
+      .cv-container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+      }
+      .cv-header {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+      }
+      .cv-subheader {
+        text-align: center;
+        font-size: 14px;
+        color: gray;
+        margin-top: 5px;
+      }
+      .section-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-top: 20px;
+        padding-bottom: 5px;
+        border-bottom: 2px solid black;
+      }
+      .section-content {
+        margin-top: 10px;
+      }
+      .experience-item,
+      .skills-item {
+        margin-top: 10px;
+      }
+      .experience-item h4,
+      .skills-item h4 {
+        font-size: 16px;
+        font-weight: bold;
+        margin: 0;
+      }
+      .experience-item .date {
+        font-size: 12px;
+        color: gray;
+      }
+      ul {
+        padding-left: 20px;
+      }
+      ul li {
+        margin-bottom: 5px;
+      }
+      .column-layout {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+      }
+      .column-layout .column {
+        width: 48%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cv-container">
+      <!-- Header -->
+      <div class="cv-header">Rifky Andigita Al-Fathir</div>
+      <div class="cv-subheader">
+        Sleman, Daerah Istimewa Yogyakarta 55281<br />
+        (M) +62 819-3608-776 (E) digitalfathir36@gmail.com
+      </div>
+
+      <!-- Summary Section -->
+      <div class="section-title">Summary</div>
+      <div class="section-content">
+        A highly motivated and accomplished Electrical Engineering Education student with a strong background in robotics, particularly in developing and programming humanoid robots for soccer competitions. With over three and a half years
+        of academic and practical experience at Universitas Negeri Yogyakarta...
+      </div>
+
+      <!-- Experience Section -->
+      <div class="section-title">Experience</div>
+      <div class="section-content">
+        <div class="experience-item">
+          <h4>Team Al-Aadiyaat (KRSBI-H, UNY) - Yogyakarta, Indonesia</h4>
+          <p class="date">07/2022 - Current</p>
+          <p><strong>Lead Programmer</strong></p>
+          <ul>
+            <li>Led and coordinated a team of programmers to develop software for humanoid soccer robots.</li>
+            <li>Designed, developed, and implemented software solutions for robot soccer control and automation.</li>
+            <li>Identified and resolved technical issues and bugs in the software, particularly those affecting soccer performance.</li>
+            <li>Organized regular meetings to discuss progress, troubleshoot issues, and plan future tasks.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Skills Section -->
+      <div class="section-title">Skills</div>
+      <div class="section-content column-layout">
+        <div class="column">
+          <ul>
+            <li><strong>Programming Languages:</strong> Proficient in C, C++, Python, and Assembly language.</li>
+            <li><strong>Microcontroller Programming:</strong> Experienced in programming microcontrollers, particularly for embedded systems.</li>
+            <li><strong>Robotics:</strong> Skilled in the development, programming, and troubleshooting of humanoid robots for soccer competitions.</li>
+          </ul>
+        </div>
+        <div class="column">
+          <ul>
+            <li><strong>Software Development:</strong> Skilled in software development for robotics applications, including algorithms for decision-making and movement.</li>
+            <li><strong>Team Leadership:</strong> Experienced in leading and coordinating a team of programmers to achieve project goals.</li>
+            <li><strong>Research and Innovation:</strong> Experienced in conducting research and implementing innovative solutions in engineering projects.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button for generating PDF -->
+    <button onclick="generatePDF()">Download PDF</button>
+
+    <!-- HTML2PDF.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+
+    <script>
+      function generatePDF() {
+        const element = document.querySelector(".cv-container");
+        const options = {
+          margin: 0.5,
+          filename: "CV_Rifky_Andigita_Al-Fathir.pdf",
+          image: { type: "jpeg", quality: 0.98 },
+          html2canvas: { scale: 2 },
+          jsPDF: { unit: "in", format: "a4", orientation: "portrait" },
+        };
+        html2pdf().set(options).from(element).save();
+      }
+    </script>
+  </body>
+</html>
